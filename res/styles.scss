@@ -2,7 +2,7 @@
 ---
 
 body {
-    font-family: "Open Sans", sans-serif;
+    font-family: "Source Sans Pro", sans-serif;
 
     background-color: #eed;
 
@@ -12,6 +12,19 @@ body {
         max-width: 1024px;
 
         background-color: #ffd000;
+
+        &:first-child {
+            background-image: url({{site.baseurl}}/res/sca/LogoFull_S.png);
+            background-repeat: no-repeat;
+            background-size: auto 185px;
+            background-position: right;
+
+            min-height: 185px;
+
+            > h1 {
+                font-family: "Source Code Pro", monospace;
+            }
+        }
     }
 }
 
