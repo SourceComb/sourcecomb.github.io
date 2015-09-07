@@ -8,34 +8,106 @@ $SourceCombOrange: #ffd000;
 $bg-body: #eed;
 
 $LogoFull_S: url({{site.baseurl}}/res/sca/LogoFull_S.png);
-$logo-height: 185px;
+$logo-height: 50px;
+$header-height: #{$logo-height + 10px};
+$menu-padding: calc(#{$header-height} / 2 - 10px);
 
 $page-width: 1024px;
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+
+    &:hover, &:focus, &:active
+    { color: #444; }
+}
+
 
 body {
     font-family: $font-sans;
 
     background-color: $bg-body;
 
-    > .container {
-        margin: auto;
+    > header { min-height: $logo-height; }
+
+    > .container,
+    > header,
+    > footer {
+        margin: 10px auto;
         padding: 5px 15px;
         max-width: $page-width;
 
         background-color: $SourceCombOrange;
+    }
 
-        &:first-child {
-            background-image: $LogoFull_S;
-            background-repeat: no-repeat;
-            background-size: auto $logo-height;
-            background-position: right;
+    > header {
+        padding: 0;
+        height: $header-height;
 
-            min-height: $logo-height;
+        > nav {
 
-            > h1 {
-                font-family: $font-mono;
+            ul {
+                list-style: none;
+                margin: 0;
+                padding-left: 0;
+            }
+
+            // Top-level ul
+            > ul {
+                $menu-item-color: lighten($SourceCombOrange, 15%);
+
+                li:hover > a { background-color: $menu-item-color; }
+                > li {
+                    display: inline-block;
+
+                    > a {
+                        display: inline-block;
+                        padding: $menu-padding 15px;
+                    }
+
+                    ul {
+                        display: none;
+                        position: absolute;
+                        margin-top: 10px;
+
+
+                        li {
+                            $submenu-item-hover: lighten($menu-item-color, 2.5%);
+                            $submenu-border-color: darken($SourceCombOrange, 2.5%);
+
+                            &:hover > a {
+                                background-color: $submenu-item-hover;
+                                border-color: $submenu-border-color;
+                                color: inherit;
+                            }
+                            a {
+                                background-color: $menu-item-color;
+                                border-width: 1px;
+                                border-style: solid;
+                                border-color: $submenu-border-color $menu-item-color;
+                                padding: 10px;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        ul {
+                            display: block;
+                        }
+                    }
+                }
             }
         }
+    }
+}
+
+.logo {
+    float: right;
+    padding: 5px;
+
+    img {
+        max-height: $logo-height;
     }
 }
 

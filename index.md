@@ -1,5 +1,5 @@
 ---
-layout: bare
+layout: main
 ---
 
 # Source Comb Software

@@ -1,0 +1,5 @@
+name: Source Comb Software
+
+exclude:
+  - README.md
+  - CNAME
